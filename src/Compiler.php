@@ -64,6 +64,13 @@ class Compiler
         $this->scssCompiler = $scssCompiler;
     }
 
+    public function convertHtml(string $html) {
+        $document = new \DOMDocument('1.0', 'UTF-8');
+        $document->loadHTML(mb_convert_encoding($html));
+        $this->convert($document);
+        return $document->saveHTML();
+    }
+
     public function convert(\DOMDocument $document): \DOMDocument {
         $document = $this->addLayout($document);
 
@@ -118,10 +125,5 @@ class Compiler
 
         $replace = $document->importNode($replacingNode, true);
         $bodyNode->parentNode->replaceChild($replace, $bodyNode);
-
-//        $cssToInlineStyles = new CssToInlineStyles($document->saveHTML(), $css);
-//        $cssToInlineStyles->setUseInlineStylesBlock(true);
-//        $cssToInlineStyles->setStripOriginalStyleTags(true);
-//        $document->loadHTML($cssToInlineStyles->convert());
     }
 }
