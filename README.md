@@ -7,8 +7,7 @@ This is a port of [Bootstrap Email](https://github.com/bootstrap-email/bootstrap
 
 ## Installation
 
-Omnipay is installed via [Composer](http://getcomposer.org/). To install, add it
-to your `composer.json` file:
+To install, add it to your `composer.json` file:
 
 ```json
 {
