@@ -33,6 +33,8 @@ You can use different methods to convert your boostrap-email html to an email cl
 ### Use DomDocument
 
 ```php
+    $scss = new ScssCompiler();
+
     // Create a DOM Document
     $doc = new DOMDocument('1.0', 'UTF-8');
     \libxml_use_internal_errors(true);
@@ -47,6 +49,16 @@ You can use different methods to convert your boostrap-email html to an email cl
 ### Use Html
 
 ```php
+    $scss = new ScssCompiler();
+    $converter = new Compiler($scss);
+    $html = $converter->convertHtml(html);
+```
+
+### Use Custom Scss
+```php
+    $scss = new ScssCompiler();
+    $scss->setScssFile(<PATH TO YOUR CUSTOM SCSS FILE);
+    $scss->setScssHeadFile(<PATH TO YOUR CUSTOM HEAD SCSS FILE);
     $converter = new Compiler($scss);
     $html = $converter->convertHtml(html);
 ```
