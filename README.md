@@ -26,6 +26,30 @@ And run composer to update your dependencies:
     $ curl -s http://getcomposer.org/installer | php
     $ php composer.phar update
 
+## Usage
+
+You can use different methods to convert your boostrap-email html to an email client compatible html.
+
+### Use DomDocument
+
+```php
+    // Create a DOM Document
+    $doc = new DOMDocument('1.0', 'UTF-8');
+    \libxml_use_internal_errors(true);
+    $doc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+    \libxml_clear_errors();
+    
+    $converter = new Compiler($scss);
+    $doc = $converter->convert($doc);
+    $html = $doc->saveHTML();
+```
+
+### Use Html
+
+```php
+    $converter = new Compiler($scss);
+    $html = $converter->convertHtml(html);
+```
 
 ## Documentations
 For full documentation, visit [bootstrapemail.com](https://bootstrapemail.com/docs/introduction)
