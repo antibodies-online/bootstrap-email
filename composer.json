@@ -1,0 +1,24 @@
+{
+  "name": "DemigodCode/bootstrap-email",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "benedikt.lenzen",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "php": "^7.0 || ^8.0",
+    "scssphp/scssphp": "v1.10.2",
+    "tijsverkoyen/css-to-inline-styles": "^2.2",
+    "twig/twig" : "v3.3.8",
+    "ext-dom": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "DemigodCode\\BootstrapEmail\\" : "src/"
+    }
+  }
+}

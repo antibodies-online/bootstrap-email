@@ -1,0 +1,36 @@
+<?php
+
+namespace DemigodCode\BootstrapEmail\Converter;
+
+class Margin extends AbstractConverter
+{
+    protected $xPathsOptions = [
+        '//*[contains(concat(" ", @class, " "), " my-") or contains(concat(" ", @class, " "), " mt-") or contains(concat(" ", @class, " "), " mb-")]' => 'margin',
+    ];
+
+    protected function getTemplate(string $identifier): string
+    {
+        return '';
+    }
+
+    public function buildReplacementHtml(\DOMElement $element, string $identifier): string {
+        preg_match('/m[ty]{1}-(lg-)?(\d+)/', $element->getAttribute('class'), $needTopClass);
+        preg_match('/m[by]{1}-(lg-)?(\d+)/', $element->getAttribute('class'), $needBottomClass);
+        $element->setAttribute('class', preg_replace('/(m[tby]{1}-(lg-)?\d+)/', '', $element->getAttribute('class')));
+
+        $html = '';
+        if(count($needTopClass) > 0) {
+            $template = $this->twig->load('div.html');
+            $class = preg_replace('/m[ty]{1}-/', '', $needTopClass[0]);
+            $html .= $template->render(['classes' => 's-'.$class[0], 'contents' => '']);
+        }
+        $html .= $element->ownerDocument->saveHTML($element);
+        if(count($needBottomClass) > 0) {
+            $template = $this->twig->load('div.html');
+            $class = preg_replace('/m[by]{1}-/', '', $needBottomClass[0]);
+            $html .= $template->render(['classes' => 's-'.$class[0], 'contents' => '']);
+        }
+
+        return $html;
+    }
+}
