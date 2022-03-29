@@ -67,7 +67,7 @@ class Compiler
     public function convertHtml(string $html) {
         $document = new \DOMDocument('1.0', 'UTF-8');
         \libxml_use_internal_errors(true);
-        $document->loadHTML(mb_convert_encoding($html));
+        $document->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
         \libxml_clear_errors();
         $this->convert($document);
         return $document->saveHTML();
