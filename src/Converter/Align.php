@@ -23,16 +23,24 @@ class Align extends AbstractConverter
     }
 
     protected function buildChildNodeContent(\DOMElement $element, string $identifier): string {
+        if ($element->tagName !== 'table' && $element->tagName !== 'td') {
+            $this->removeClass($element, 'ax-'.$identifier);
+        }
         return $element->ownerDocument->saveHTML($element);
     }
 
     public function buildReplacementHtml(\DOMElement $element, string $identifier): string
     {
         if ($element->tagName !== 'table' && $element->tagName !== 'td') {
-            $this->removeClass($element, 'ax-' . $identifier);
             return parent::buildReplacementHtml($element, $identifier);
         }
         $this->extractParentCssClasses($element, $identifier);
         return $element->ownerDocument->saveHTML($element);
+    }
+
+    protected function postDomUpdate(\DOMElement $element, string $identifier): void
+    {
+        $element->setAttribute('align', $identifier);
+        parent::postDomUpdate($element, $identifier);
     }
 }

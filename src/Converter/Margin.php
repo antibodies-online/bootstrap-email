@@ -21,14 +21,14 @@ class Margin extends AbstractConverter
         $html = '';
         if(count($needTopClass) > 0) {
             $template = $this->twig->load('div.html');
-            $class = preg_replace('/m[ty]{1}-/', '', $needTopClass[0]);
-            $html .= $template->render(['classes' => 's-'.$class[0], 'contents' => '']);
+            unset($needTopClass[0]);
+            $html .= $template->render(['classes' => 's-'.implode('', $needTopClass), 'contents' => '']);
         }
         $html .= $element->ownerDocument->saveHTML($element);
         if(count($needBottomClass) > 0) {
             $template = $this->twig->load('div.html');
-            $class = preg_replace('/m[by]{1}-/', '', $needBottomClass[0]);
-            $html .= $template->render(['classes' => 's-'.$class[0], 'contents' => '']);
+            unset($needBottomClass[0]);
+            $html .= $template->render(['classes' => 's-'.implode('', $needBottomClass), 'contents' => '']);
         }
 
         return $html;
