@@ -30,11 +30,26 @@ abstract class AbstractConverter
 
                 $html = $this->buildReplacementHtml($element, $identifier);
                 $doc2 = new \DOMDocument('1.0', 'UTF-8');
-                $doc2->loadHTML(mb_convert_encoding('<html><div>'.$html.'<div></html>', 'HTML-ENTITIES', 'UTF-8'));
+                $doc2->loadHTML(mb_convert_encoding('<html>'.$html.'</html>', 'HTML-ENTITIES', 'UTF-8'));
 
-                $replacingNode = $doc2->getElementsByTagName('body')[0]->firstChild;
-                $replace = $doc->importNode($replacingNode, true);
-                $element->parentNode->replaceChild($replace, $element);
+                $lastNode = null;
+                foreach($doc2->getElementsByTagName('body')[0]->childNodes as $replacingNode) {
+                    // Skip e.g. DOMText
+                    if ($lastNode instanceof \DOMElement) {
+                        $this->postDomUpdate($lastNode, $identifier);
+                    }
+                    $replace = $doc->importNode($replacingNode, true);
+                    if(null === $lastNode) {
+                        $element->parentNode->replaceChild($replace, $element);
+                        $lastNode = $replace;
+                    } else {
+                        if($lastNode->nextSibling === null) {
+                            $lastNode = $lastNode->parentNode->appendChild($replace);
+                        } else {
+                            $lastNode = $lastNode->parentNode->insertBefore($replace, $lastNode->nextSibling);
+                        }
+                    }
+                }
             }
         }
         return $doc;
@@ -86,5 +101,9 @@ abstract class AbstractConverter
     protected function hasToBeSkipped(\DOMElement $element)
     {
         return false;
+    }
+
+    protected function postDomUpdate(\DOMElement $element, string $identifier): void {
+        return;
     }
 }
