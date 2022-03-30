@@ -66,13 +66,18 @@ $html = $converter->convertHtml(html);
 composer test
 ```
 
-## Known Issues
+## Features missing
 
 - Remove unused css in header after compiling
 - Add Stack https://bootstrapemail.com/docs/stack
 
 ## Documentations
 For full documentation, visit [bootstrapemail.com](https://bootstrapemail.com/docs/introduction)
+
+## Contributing
+Really appreciate bug reports. Feel free to ask for additional functionality/fields. 
+But be aware not all feature may be implemented.
+A Pull Request for your Features would be amazing.
 
 ## Community
 For help, discussion about best practices, or any other conversation that would benefit from being searchable:

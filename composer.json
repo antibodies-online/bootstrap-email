@@ -1,6 +1,12 @@
 {
   "name": "demigod-code/bootstrap-email",
   "description": "A PHP port of bootstrap-email ruby package",
+  "keywords": [
+    "bootstrap",
+    "email",
+    "mail",
+    "responsive"
+  ],
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
