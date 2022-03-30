@@ -1,5 +1,5 @@
 # bootstrap-email
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/DemigodCode/bootstrap-email/master/LICENSE.md)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/DemigodCode/bootstrap-email/master/LICENSE)
 [![Packagist](https://img.shields.io/packagist/v/DemigodCode/bootstrap-email.svg)](https://packagist.org/packages/DemigodCode/bootstrap-email)
 [![GitHub issues](https://img.shields.io/github/issues/DemigodCode/bootstrap-email.svg)](https://github.com/DemigodCode/bootstrap-email/issues)
 [![PHP Composer Test](https://github.com/DemigodCode/bootstrap-email/actions/workflows/php.yml/badge.svg)](https://github.com/DemigodCode/bootstrap-email/actions/workflows/php.yml)
