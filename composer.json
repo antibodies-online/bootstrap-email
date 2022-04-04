@@ -1,16 +1,22 @@
 {
   "name": "demigod-code/bootstrap-email",
   "description": "A PHP port of bootstrap-email ruby package",
+  "keywords": [
+    "bootstrap",
+    "email",
+    "mail",
+    "responsive"
+  ],
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
     {
-      "name": "benedikt.lenzen",
+      "name": "Benedikt Lenzen",
       "email": "info@bl-websolutions.de"
     }
   ],
   "require": {
-    "php": "^7.0 || ^8.0",
+    "php": "^7.1 || ^8.0",
     "scssphp/scssphp": "^v1.10",
     "tijsverkoyen/css-to-inline-styles": "^2.2",
     "twig/twig" : "^v3.0",
@@ -20,5 +26,12 @@
     "psr-4": {
       "DemigodCode\\BootstrapEmail\\" : "src/"
     }
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "^9.5"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   }
 }
