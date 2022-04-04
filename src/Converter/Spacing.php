@@ -22,7 +22,6 @@ class Spacing extends AbstractConverter
     {
         $spacing = [];
         preg_match('/space-y-((lg-)?\d+)/', $element->getAttribute('class'), $needTopClass);
-        $spacing = preg_replace('/space-y-((lg-)?\d+)/', '', $spacing[0]);
 
         $doc = new \DOMDocument('1.0', 'UTF-8');
         $doc->loadHTML(mb_convert_encoding('<html><div>'.$element->ownerDocument->saveHTML($element).'<div></html>', 'HTML-ENTITIES', 'UTF-8'));
@@ -31,7 +30,7 @@ class Spacing extends AbstractConverter
             if (preg_match('/m[by]{1}-(lg-)?\d+/', $childElement->getAttribute('class'))) {
                 continue;
             }
-            $childElement->setAttribute('class', $childElement->getAttribute('class') . ' mb-' . $spacing);
+            $childElement->setAttribute('class', $childElement->getAttribute('class') . ' mb-' . $needTopClass[1]);
         }
 
         return $this->getInnerHtml($doc->getElementsByTagName('body')[0]);
