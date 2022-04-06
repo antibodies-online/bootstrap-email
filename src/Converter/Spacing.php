@@ -20,7 +20,6 @@ class Spacing extends AbstractConverter
 
     public function buildReplacementHtml(\DOMElement $element, string $identifier): string
     {
-        $spacing = [];
         preg_match('/space-y-((lg-)?\d+)/', $element->getAttribute('class'), $needTopClass);
 
         $doc = new \DOMDocument('1.0', 'UTF-8');
