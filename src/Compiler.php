@@ -32,6 +32,7 @@ class Compiler
     private $configurators = [];
     private $cssConverters = [];
     private $scssCompiler;
+    private $twig;
 
     public function __construct(ScssCompiler $scssCompiler)
     {
@@ -64,26 +65,34 @@ class Compiler
         $this->scssCompiler = $scssCompiler;
     }
 
-    public function convertHtml(string $html) {
+    public function compileHtml(string $html, string $pathHeadScss = '', string $pathScss = '') {
         $document = new \DOMDocument('1.0', 'UTF-8');
         \libxml_use_internal_errors(true);
         $document->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
         \libxml_clear_errors();
-        $this->convert($document);
+        $this->compile($document, $pathHeadScss, $pathScss);
         return $document->saveHTML();
     }
 
-    public function convert(\DOMDocument $document): \DOMDocument {
+    public function compile(\DOMDocument $document, string $pathHeadScss = '', string $pathScss = ''): \DOMDocument {
+        if('' !== $pathHeadScss) {
+            $this->scssCompiler->setScssHeadFile($pathHeadScss);
+        }
+
+        if('' !== $pathScss) {
+            $this->scssCompiler->setScssFile($pathScss);
+        }
+
         $document = $this->addLayout($document);
 
-        $document = $this->compile($document);
+        $document = $this->convert($document);
         $document = $this->configure($document);
         $this->inlineCss($document, $this->scssCompiler->getCss());
         $document = $this->cssCompile($document);
         return $document;
     }
 
-    private function compile(\DOMDocument $document) {
+    private function convert(\DOMDocument $document) {
         foreach($this->converters as $converter) {
             $document = $converter->convert($document);
         }
@@ -107,10 +116,7 @@ class Compiler
     private function addLayout(\DOMDocument $document) {
         $xPath = new \DOMXPath($document);
         if (count($xPath->query('//head')) === 0) {
-            $loader = new FilesystemLoader(__DIR__.'/../resources');
-            $twig = new Environment($loader, ['autoescape' => false]);
-            $template = $twig->load('layout.html');
-            $document->loadHTML(mb_convert_encoding($template->render(['contents' => $document->saveHTML()]), 'HTML-ENTITIES', 'UTF-8'));
+            $document->loadHTML(mb_convert_encoding($this->getTwig()->render('layout.html', ['contents' => $document->saveHTML()]), 'HTML-ENTITIES', 'UTF-8'));
         }
         return $document;
     }
@@ -127,5 +133,17 @@ class Compiler
 
         $replace = $document->importNode($replacingNode, true);
         $bodyNode->parentNode->replaceChild($replace, $bodyNode);
+    }
+
+    public function setTwig(Environment $twig) {
+        $this->twig = $twig;
+    }
+
+    public function getTwig(): Environment {
+        if(null !== $this->twig) {
+            return $this->twig;
+        }
+        $loader = new FilesystemLoader(__DIR__.'/../resources');
+        return new Environment($loader, ['autoescape' => false]);
     }
 }
