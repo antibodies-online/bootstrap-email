@@ -22,7 +22,7 @@ class CardTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/card.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/card.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

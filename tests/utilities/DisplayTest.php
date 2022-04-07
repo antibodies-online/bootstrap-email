@@ -22,7 +22,7 @@ class DisplayTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/display.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/display.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

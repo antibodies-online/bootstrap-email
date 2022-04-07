@@ -22,7 +22,7 @@ class PreviewTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/preview.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/preview.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

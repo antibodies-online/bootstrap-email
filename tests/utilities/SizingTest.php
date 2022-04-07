@@ -22,7 +22,7 @@ class SizingTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/sizing.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/sizing.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

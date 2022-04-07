@@ -22,7 +22,7 @@ class AlignTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/align.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/align.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

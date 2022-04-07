@@ -22,14 +22,14 @@ class ContainerTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/container-fluid.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/container-fluid.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
     public function testContainer()
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/container.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/container.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

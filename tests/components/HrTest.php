@@ -22,7 +22,7 @@ class HrTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/hr.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/hr.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

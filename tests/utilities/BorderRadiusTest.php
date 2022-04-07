@@ -22,7 +22,7 @@ class BorderRadiusTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/border-radius.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/border-radius.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

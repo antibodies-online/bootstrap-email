@@ -22,7 +22,7 @@ class ButtonTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/button.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/button.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

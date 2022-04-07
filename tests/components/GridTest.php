@@ -22,7 +22,7 @@ class GridTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/grid.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/grid.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

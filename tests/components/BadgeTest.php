@@ -22,7 +22,7 @@ class BadgeTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/badge.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/badge.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }

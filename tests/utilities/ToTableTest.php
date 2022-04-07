@@ -22,7 +22,7 @@ class ToTableTest extends TestCase
     {
         $input = file_get_contents(__DIR__ . '/../resources/input/to-table.html');
         $output = file_get_contents(__DIR__ . '/../resources/output/to-table.html');
-        $this->assertEquals($output, $this->converter->convertHtml($input));
+        $this->assertEquals($output, $this->converter->compileHtml($input));
     }
 
 }
