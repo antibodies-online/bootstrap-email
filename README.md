@@ -68,7 +68,6 @@ composer test
 
 ## Features missing
 
-- Remove unused css in header after compiling
 - Add Stack https://bootstrapemail.com/docs/stack
 
 ## Documentations
