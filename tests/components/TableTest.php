@@ -1,9 +1,9 @@
 <?php
 
-namespace DemigodCode\BootstrapEmail\Converter;
+namespace AntibodiesOnline\BootstrapEmail\Converter;
 
-use DemigodCode\BootstrapEmail\Compiler;
-use DemigodCode\BootstrapEmail\ScssCompiler;
+use AntibodiesOnline\BootstrapEmail\Compiler;
+use AntibodiesOnline\BootstrapEmail\ScssCompiler;
 use PHPUnit\Framework\TestCase;
 
 class TableTest extends TestCase

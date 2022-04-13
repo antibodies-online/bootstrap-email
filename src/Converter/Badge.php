@@ -1,8 +1,8 @@
 <?php
 
-namespace DemigodCode\BootstrapEmail\Converter;
+namespace AntibodiesOnline\BootstrapEmail\Converter;
 
-use DemigodCode\BootstrapEmail\Converter\AbstractConverter;
+use AntibodiesOnline\BootstrapEmail\Converter\AbstractConverter;
 
 class Badge extends AbstractConverter
 {

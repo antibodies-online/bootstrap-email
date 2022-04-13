@@ -1,6 +1,6 @@
 <?php
 
-namespace DemigodCode\BootstrapEmail\Converter;
+namespace AntibodiesOnline\BootstrapEmail\Converter;
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;

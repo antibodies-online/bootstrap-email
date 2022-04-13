@@ -1,6 +1,6 @@
 <?php
 
-namespace DemigodCode\BootstrapEmail;
+namespace AntibodiesOnline\BootstrapEmail;
 
 use ScssPhp\ScssPhp\Compiler;
 

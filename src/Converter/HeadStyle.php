@@ -1,8 +1,8 @@
 <?php
 
-namespace DemigodCode\BootstrapEmail\Converter;
+namespace AntibodiesOnline\BootstrapEmail\Converter;
 
-use DemigodCode\BootstrapEmail\ScssCompiler;
+use AntibodiesOnline\BootstrapEmail\ScssCompiler;
 
 class HeadStyle
 {

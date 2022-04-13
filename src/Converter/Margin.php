@@ -1,6 +1,6 @@
 <?php
 
-namespace DemigodCode\BootstrapEmail\Converter;
+namespace AntibodiesOnline\BootstrapEmail\Converter;
 
 class Margin extends AbstractConverter
 {

@@ -12,7 +12,7 @@
   "authors": [
     {
       "name": "Benedikt Lenzen",
-      "email": "info@bl-websolutions.de"
+      "email": "benedikt.lenzen@antibodies-online.com"
     }
   ],
   "require": {
@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "DemigodCode\\BootstrapEmail\\" : "src/"
+      "AntibodiesOnline\\BootstrapEmail\\" : "src/"
     }
   },
   "require-dev": {
