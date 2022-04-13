@@ -1,8 +1,8 @@
 # bootstrap-email
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/DemigodCode/bootstrap-email/master/LICENSE)
-[![Packagist](https://img.shields.io/packagist/v/demigod-code/bootstrap-email.svg)](https://packagist.org/packages/demigod-code/bootstrap-email)
-[![GitHub issues](https://img.shields.io/github/issues/DemigodCode/bootstrap-email.svg)](https://github.com/DemigodCode/bootstrap-email/issues)
-[![PHP Composer Test](https://github.com/DemigodCode/bootstrap-email/actions/workflows/php.yml/badge.svg)](https://github.com/DemigodCode/bootstrap-email/actions/workflows/php.yml)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/antibodies-online/bootstrap-email/master/LICENSE)
+[![Packagist](https://img.shields.io/packagist/v/antibodies-online/bootstrap-email.svg)](https://packagist.org/packages/antibodies-online/bootstrap-email)
+[![GitHub issues](https://img.shields.io/github/issues/antibodies-online/bootstrap-email.svg)](https://github.com/antibodies-online/bootstrap-email/issues)
+[![PHP Composer Test](https://github.com/antibodies-online/bootstrap-email/actions/workflows/php.yml/badge.svg)](https://github.com/antibodies-online/bootstrap-email/actions/workflows/php.yml)
 
 This is a port of [Bootstrap Email](https://github.com/bootstrap-email/bootstrap-email). Thanks to @stuyam!
 
@@ -13,15 +13,15 @@ To install, add it to your `composer.json` file:
 ```json
 {
   "require": {
-      "DemigodCode/bootstrap-email": "master"
+      "antibodies-online/bootstrap-email": "master"
   }
 }
 ```
 
-or direct from [packagist](https://packagist.org/packages/demigod-code/bootstrap-email)
+or direct from [packagist](https://packagist.org/packages/antibodies-online/bootstrap-email)
 
 ```shell
-composer require demigod-code/bootstrap-email
+composer require antibodies-online/bootstrap-email
 ```
 
 ## Usage
