@@ -18,6 +18,8 @@ jobs:
       matrix:
         include:
           - php: '7.1'
+            mode: low-deps
+          - php: '7.1'
           - php: '7.2'
           - php: '7.3'
           - php: '7.4'
