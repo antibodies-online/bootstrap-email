@@ -17,9 +17,9 @@
   ],
   "require": {
     "php": "^7.1 || ^8.0",
-    "scssphp/scssphp": "^v1.10",
+    "scssphp/scssphp": "^v1.5.0",
     "tijsverkoyen/css-to-inline-styles": "^2.2",
-    "twig/twig" : "^v3.0",
+    "twig/twig" : "^v1.0 || ^v2.0 || ^v3.0",
     "ext-dom": "*"
   },
   "autoload": {
