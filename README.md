@@ -6,6 +6,8 @@
 
 This is a port of [Bootstrap Email](https://github.com/bootstrap-email/bootstrap-email). Thanks to @stuyam!
 
+This project is forked from antibodies-online/bootstrap-email
+
 ## Installation
 
 To install, add it to your `composer.json` file:
