@@ -1,6 +1,6 @@
 {
-  "name": "antibodies-online/bootstrap-email",
-  "description": "A PHP port of bootstrap-email ruby package",
+  "name": "rahulpr/bootstrap-email",
+  "description": "A PHP port of bootstrap-email ruby package forked from antibodies-online/bootstrap-email",
   "keywords": [
     "bootstrap",
     "email",
