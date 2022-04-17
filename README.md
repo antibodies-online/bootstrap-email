@@ -6,7 +6,7 @@
 
 This is a port of [Bootstrap Email](https://github.com/bootstrap-email/bootstrap-email). Thanks to @stuyam!
 
-This project is forked from antibodies-online/bootstrap-email
+This project is forked from [antibodies-online/bootstrap-email](https://github.com/antibodies-online/bootstrap-email).
 
 ## Installation
 
