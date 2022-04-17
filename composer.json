@@ -7,7 +7,7 @@
     "mail",
     "responsive"
   ],
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "license": "MIT",
   "authors": [
     {
