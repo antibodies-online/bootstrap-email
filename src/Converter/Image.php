@@ -17,13 +17,17 @@ class Image
 
                 /** @var \DOMElement $element */
                 preg_match('/; width: ?(.*?)(px)?;/', $element->getAttribute('style'), $width);
-                if ($width[1] !== 'auto') {
-                    $element->setAttribute('width', $width[1]);
+                if(isset($width[1])) {
+                    if ($width[1] !== 'auto') {
+                        $element->setAttribute('width', $width[1]);
+                    }
                 }
 
                 preg_match('/; height: ?(.*?)(px)?;/', $element->getAttribute('style'), $height);
-                if ($height[1] !== 'auto') {
-                    $element->setAttribute('height', $height[1]);
+                if(isset($height[1])) {
+                    if ($height[1] !== 'auto') {
+                        $element->setAttribute('height', $height[1]);
+                    }
                 }
             }
         }
