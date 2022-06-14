@@ -27,6 +27,7 @@
       background-color: $color;
     }
     .btn-#{$name} td a {
+      border: $btn-border-width solid $color;
       background-color: $color;
       @include color-contrast($color);
       border-color: $color;
