@@ -19,8 +19,11 @@ class PreviewText
         if (count($xPath->query('//*[contains(concat(" ", @class, " "), " preview ")]')) === 0 && count($xPath->query('//preview')) > 0) {
             /** @var \DOMElement $previewNode */
             $previewNode = $xPath->query('//preview')[0];
-            $previewText = str_pad($previewNode->nodeValue, 100);
-            $previewText = str_replace(' ', '&nbsp;', $previewText);
+            $previewText = $previewNode->nodeValue;
+            $length = strlen($previewText);
+            if ($length < 278) {
+                $previewText .= str_repeat('&#847; &zwnj; &nbsp; ', (278 - $length));
+            }
 
             $template = $this->twig->load('div.html');
             $html = $template->render(['classes' => 'preview', 'contents' => $previewText]);
