@@ -49,7 +49,7 @@ $html = $doc->saveHTML();
 ```php
 $scss = new ScssCompiler();
 $converter = new Compiler($scss);
-$html = $converter->convertHtml(html);
+$html = $converter->compileHtml(<MY HTML STRING>);
 ```
 
 ### Use Custom Scss
@@ -58,7 +58,7 @@ $scss = new ScssCompiler();
 $scss->setScssFile(<PATH TO YOUR CUSTOM SCSS FILE);
 $scss->setScssHeadFile(<PATH TO YOUR CUSTOM HEAD SCSS FILE);
 $converter = new Compiler($scss);
-$html = $converter->convertHtml(html);
+$html = $converter->compileHtml(<MY HTML STRING>);
 ```
 
 ## Run Unit-Tests
