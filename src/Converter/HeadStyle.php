@@ -32,7 +32,7 @@ class HeadStyle
             }
         }
 
-        $css = preg_replace('/\n\s*\n+/', '\n', $defaultCss . $customCss);
+        $css = preg_replace('/\n\s*\n+/', "\n", $defaultCss . $customCss);
 
         $html = '<html><head><style type="text/css">'.$css.'</style></head><body></body></html>';
         $doc2 = new \DOMDocument('1.0', 'UTF-8');
