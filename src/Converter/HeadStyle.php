@@ -23,7 +23,7 @@ class HeadStyle
             preg_match_all('/(\.[\w\-]*).*?((,+?)|{+?)/', $customCssGroup, $customCssSelector);
             $foundOccurence = false;
             foreach($customCssSelector[1] as $cssSelector) {
-                if(count($xPath->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' my-class ')]")) > 0) {
+                if(count($xPath->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' " . trim($cssSelector, '.') . " ')]")) > 0) {
                     $foundOccurence = true;
                 }
             }
