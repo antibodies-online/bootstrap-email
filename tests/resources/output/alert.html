@@ -42,11 +42,22 @@ table:not([class^=s-]) {
 table:not([class^=s-]) td {
   border-spacing: 0px;
   border-collapse: collapse;
-}\n@media screen and (max-width: 600px) {\n  *[class*=s-lg-] > tbody > tr > td {
+}
+@media screen and (max-width: 600px) {
+  .w-full, .w-full > tbody > tr > td {
+    width: 100% !important;
+  }
+  *[class*=s-lg-] > tbody > tr > td {
     font-size: 0 !important;
     line-height: 0 !important;
     height: 0 !important;
-  }\n}
+  }
+  .s-5 > tbody > tr > td {
+    font-size: 20px !important;
+    line-height: 20px !important;
+    height: 20px !important;
+  }
+}
 </style><meta name="x-apple-disable-message-reformatting"><!--Compiled with Bootstrap Email (PHP)--></head>
   
 <body style="margin: 0; Margin: 0; padding: 0; border: 0; outline: 0; width: 100%; min-width: 100%; height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, sans-serif; line-height: 24px; font-weight: normal; font-size: 16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; background-color: #ffffff; color: #000000;">

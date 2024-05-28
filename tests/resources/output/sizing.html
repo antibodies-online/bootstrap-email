@@ -44,6 +44,12 @@ table:not([class^=s-]) td {
   border-collapse: collapse;
 }
 @media screen and (max-width: 600px) {
+  .w-10, .w-10 > tbody > tr > td {
+    width: 40px !important;
+  }
+  .h-10, .h-10 > tbody > tr > td {
+    height: 40px !important;
+  }
   *[class*=s-lg-] > tbody > tr > td {
     font-size: 0 !important;
     line-height: 0 !important;
