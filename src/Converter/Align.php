@@ -13,18 +13,18 @@ class Align extends AbstractConverter
 
     protected function getTemplate(string $identifier): string
     {
-        return 'table.html';
+        return 'table-align.html';
     }
 
     protected function extractParentCssClasses(\DOMElement $element, string $identifier): string
     {
-        $element->setAttribute('align', $identifier);
-        return parent::extractParentCssClasses($element, $identifier);
+        return 'ax-' . $identifier;
     }
 
-    protected function buildChildNodeContent(\DOMElement $element, string $identifier): string {
+    protected function buildChildNodeContent(\DOMElement $element, string $identifier): string
+    {
         if ($element->tagName !== 'table' && $element->tagName !== 'td') {
-            $this->removeClass($element, 'ax-'.$identifier);
+            $this->removeClass($element, 'ax-' . $identifier);
         }
         return $element->ownerDocument->saveHTML($element);
     }
@@ -34,7 +34,6 @@ class Align extends AbstractConverter
         if ($element->tagName !== 'table' && $element->tagName !== 'td') {
             return parent::buildReplacementHtml($element, $identifier);
         }
-        $this->extractParentCssClasses($element, $identifier);
         return $element->ownerDocument->saveHTML($element);
     }
 

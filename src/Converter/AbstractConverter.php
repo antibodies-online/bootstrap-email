@@ -57,7 +57,11 @@ abstract class AbstractConverter
 
     public function buildReplacementHtml(\DOMElement $element, string $identifier): string {
         $template = $this->twig->load($this->getTemplate($identifier));
-        return $template->render(['classes' => $this->extractParentCssClasses($element, $identifier), 'contents' => $this->buildChildNodeContent($element, $identifier)]);
+        return $template->render([
+            'classes' => $this->extractParentCssClasses($element, $identifier),
+            'contents' => $this->buildChildNodeContent($element, $identifier),
+            'align' => $identifier
+        ]);
     }
 
     protected function buildChildNodeContent(\DOMElement $element, string $identifier): string {
