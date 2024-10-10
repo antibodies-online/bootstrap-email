@@ -1,6 +1,7 @@
 {
   "name": "antibodies-online/bootstrap-email",
   "description": "A PHP port of bootstrap-email ruby package",
+  "homepage": "https://www.antibodies-online.com/",
   "keywords": [
     "bootstrap",
     "email",
