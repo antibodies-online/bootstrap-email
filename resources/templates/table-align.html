@@ -1,4 +1,4 @@
-<table class="{{ classes }}" align="{{ align }}" role="presentation">
+<table class="{{ classes }}" align="{{ align }}" style="{% if align == 'right' %}margin-left: auto; margin-right: 0;{% elseif align == 'left' %}margin-left: 0; margin-right: auto;{% elseif align == 'center' %}margin: 0 auto;{% endif %}" role="presentation">
   <tbody>
     <tr>
       <td>
