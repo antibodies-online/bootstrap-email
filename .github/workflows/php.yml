@@ -2,9 +2,13 @@ name: PHPUnit
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - v1
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
+      - v1
   workflow_dispatch:
 
 permissions:
