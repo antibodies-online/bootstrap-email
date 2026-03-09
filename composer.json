@@ -23,6 +23,9 @@
     "twig/twig" : "^v1.0 || ^v2.0 || ^v3.0",
     "ext-dom": "*"
   },
+  "conflict": {
+    "scssphp/scssphp": "<v2.1.0"
+  },
   "autoload": {
     "psr-4": {
       "AntibodiesOnline\\BootstrapEmail\\" : "src/"
@@ -35,4 +38,4 @@
   "scripts": {
     "test": "vendor/bin/phpunit"
   }
-}
+},
