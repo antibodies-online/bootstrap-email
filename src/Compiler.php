@@ -71,7 +71,7 @@ class Compiler
         $document->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
         \libxml_clear_errors();
         $this->compile($document, $pathHeadScss, $pathScss);
-        return $document->saveHTML();
+        return $this->HtmlPostProcessor($document->saveHTML());
     }
 
     public function compile(\DOMDocument $document, string $pathHeadScss = '', string $pathScss = ''): \DOMDocument {
@@ -133,6 +133,58 @@ class Compiler
 
         $replace = $document->importNode($replacingNode, true);
         $bodyNode->parentNode->replaceChild($replace, $bodyNode);
+    }
+
+    private function HtmlPostProcessor($html) {
+        libxml_use_internal_errors(true);
+        $doc = new \DOMDocument();
+        $doc->loadHTML($html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        libxml_clear_errors();
+
+        $xpath = new \DOMXPath($doc);
+        $anchors = $xpath->query('//a');
+
+        foreach ($anchors as $anchor) {
+            $anchorIsEmpty = true;
+            foreach ($anchor->childNodes as $child) {
+                if ($child->nodeType === XML_ELEMENT_NODE) {
+                    $anchorIsEmpty = false;
+                    break;
+                }
+                if ($child->nodeType === XML_TEXT_NODE && trim($child->textContent) !== '') {
+                    $anchorIsEmpty = false;
+                    break;
+                }
+            }
+            if (!$anchorIsEmpty) {
+                continue;
+            }
+
+            $next = $anchor->nextSibling;
+            while ($next && $next->nodeType === XML_TEXT_NODE && trim($next->textContent) === '') {
+                $next = $next->nextSibling;
+            }
+            if (!$next) {
+                continue;
+            }
+            $nextName = strtolower($next->nodeName);
+            if ($nextName !== 'table' && $nextName !== 'img') {
+                continue;
+            }
+
+            $nodesToMove = [];
+            for ($node = $anchor->nextSibling; $node !== null; $node = $node->nextSibling) {
+                $nodesToMove[] = $node;
+                if (strtolower($node->nodeName) === 'img') {
+                    break;
+                }
+            }
+            foreach ($nodesToMove as $node) {
+                $anchor->appendChild($node);
+            }
+        }
+
+        return $doc->saveHTML($doc->getElementById('body'));
     }
 
     public function setTwig(Environment $twig) {
