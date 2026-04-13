@@ -7,6 +7,8 @@ use Twig\Loader\FilesystemLoader;
 
 class PreviewText
 {
+    private $twig;
+    
     public function __construct()
     {
         $loader = new FilesystemLoader(__DIR__.'/../../resources/templates');
